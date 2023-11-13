@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap');
+@font-face {
+    font-family: jeopardyFont;
+    src: url(font/Triumvirate\ Extra\ Compressed\ Regular.ttf);
+}
+
+body {
+    background-color: #010A78;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+a {
+    color: #D7A04B;
+}
+
+#gameTitle {
+    font-size: 3em;
+}
+
+table {
+    width: 100%;
+    font-size: 2.5em;
+    font-family: "jeopardyFont";
+}
+
+caption {
+    margin-top: 1vw;
+}
+
+th {
+    font-weight: bold;
+}
+
+th, td {
+    padding: 1vw;
+    border: 5px solid black;
+    margin: 0;
+}
+
+th {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    color: #D7A04B;
+}
+
+.player_info, .player_info div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    letter-spacing: 1px;
+    font-weight: lighter;
+}
+
+label {
+    color: white;
+    font-size: 2.5em;
+    /* margin-bottom: 2vw; */
+}
+
+input {
+    padding: 1vw;
+    font-size: 2em;
+    margin-top: 2vw;
+    border-radius: 5px;
+}
+
+button {
+    width: fit-content;
+    padding: 1vw;
+    font-size: 2em;
+    border-radius: 5px;
+    margin-top: 1.5vw;
+}
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+input[type="submit"], button {
+    background-color: #D7A04B;
+    border: 1px solid #D7A04B;
+    color: white;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #997135;
+    border-color: #997135;
+    cursor: pointer;
+}
