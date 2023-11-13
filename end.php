@@ -21,7 +21,7 @@ if(isset($_COOKIE['players'])) {
     setcookie('players', $updated_cookie, time()+60*60*24*30);
 } else {
     // if this is the first user to play, initialize the cookie
-    $cookie_val = addToPlayerCookie(array($_SESSION['user'] => $_SESSION['points']))
+    $cookie_val = addToPlayerCookie(array($_SESSION['user'] => $_SESSION['points']));
     setcookie('players', $cookie_val, time()+60*60*24*30);
 }
 
