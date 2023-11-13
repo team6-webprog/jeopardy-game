@@ -1,4 +1,6 @@
-<?php include 'questions_answers.php';
+<?php 
+include 'questions_answers.php';
+include 'common.php';
 session_start();
 
 // save the user's category and point choice to a cookie
@@ -25,8 +27,6 @@ if(isset($_GET['question'])) {
                 $questionType = $_COOKIE['currentQ'];
             } 
 
-            $mapping = array("cat1" => 0, "cat2" => 1, "cat3" => 2, "cat4" => 3, "cat5" => 4);
-
             // parse out category and the number (100 or 200 or...)
             $category = substr($questionType, 0, 4);
             $number = substr($questionType, 5, 1);
@@ -42,12 +42,19 @@ if(isset($_GET['question'])) {
                 // if answer is identical, update user's points
                 if(strtolower($_POST['userResponse']) == strtolower($a)) {
                     $_SESSION["points"] += ((int)$number * 100);
+                    echo "<div><h1>Your answer is Correct!</h1> 
+                    <label>You earned $". ((int)$number * 100)." points!</label>
+                    <br> <button><a href='game.php'>Return to Board</a></button></div>";
+                    exit;
+                } else {
+                    $_SESSION["points"] -= ((int)$number * 100);
+                    echo "<div><h1>Sorry, your answer is Wrong.</h1> 
+                    <label>You lost $". ((int)$number * 100)." points.</label>
+                    <br> <button><a href='game.php'>Return to Board</a></button></div>";
+                    exit;
                 }
 
-                echo "<div><h1>Correct!</h1> 
-                <label>You earned $". ((int)$number * 100)." points!</label>
-                <br> <button><a href='game.php'>Return to Board</a></button></div>";
-                exit;
+                
             }
             // if user needs to answer the question, determine question and run remaining code
             else {
@@ -61,6 +68,20 @@ if(isset($_GET['question'])) {
             <input type="text" name="userResponse" id="userResponse" size='20'>
             <input type="submit" value="Enter">
         </form>
+
+        <div class="timer-container">
+            <div class="timer-bar">
+                <div class="timer_1"></div>
+                <div class="timer_2"></div>
+                <div class="timer_3"></div>
+                <div class="timer_4"></div>
+                <div class="timer_5"></div>
+                <div class="timer_6"></div>
+                <div class="timer_7"></div>
+                <div class="timer_8"></div>
+                <div class="timer_9"></div>
+            </div>
+        </div>
 
     </body>
 

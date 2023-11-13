@@ -39,7 +39,7 @@ if(isset($_COOKIE['players'])) {
     <h1 id="gameTitle">Congrats! Thank you for playing.</h1>
     <h2>Your Final Score:</h2>
 
-    <p><?= $_SESSION['user'] ?> - <?= $_SESSION['points'] ?></p>
+    <label><?= $_SESSION['user'] ?> ~ $<?= $_SESSION['points'] ?></label><br>
     <button><a href="index.php">Play Again</a></button>
   </div>
 

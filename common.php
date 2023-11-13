@@ -10,10 +10,17 @@ function decodePlayerCookie($str) {
 
     // create an associative array with user name
     // as key and point as value
-    foreach($players_old as $user_points) {
-        $i = explode("--", $user_points);
-        $updated_players[$i[0]] = $i[1]; //this is causing an undefined key error, can't figure it out?
+
+    for ($i=0; $i < count($players_old) - 1; $i++) { 
+        $pair = explode("--", $players_old[$i]);
+        // print_r($pair);
+        $updated_players[$pair[0]] = $pair[1];
     }
+    // foreach($players_old as $user_points) {
+    //     $i = explode("--", $user_points);
+    //     print_r($i);
+    //     $updated_players[$i[0]] = $i[1]; //this is causing an undefined key error, can't figure it out?
+    // }
 
     // return associative array of form:
     // Array ( "user1" => 1000, "user2" => 900... )
@@ -30,5 +37,7 @@ function addToPlayerCookie($players) {
 
     return $cookie;
 }
+
+$mapping = array("cat1" => 0, "cat2" => 1, "cat3" => 2, "cat4" => 3, "cat5" => 4);
 
 ?>

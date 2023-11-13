@@ -4,7 +4,7 @@
 
 $sci_questions = array("What is the chemical symbol for water?", "Which planet is known as the Red Planet?", "What is the powerhouse of the cell?", "What is the largest mammal on Earth?", "What is the speed of light in a vacuum?");
 
-$lit_questions = array("Who wrote 'Romeo and Juliet'?", "What is the name of the protagonist of 'Pride and Prejudice'?", "What is the opening line of Charles Dickens' 'A Tale of Two Cities'?", "Who wrote the play 'Hamlet'?", "In George Orwell's '1984', what is the oppressive regime called?");
+$lit_questions = array("Who wrote 'Romeo and Juliet'?", "Who wrote 'The Colour Purple'?", "What is the opening line of Charles Dickens' 'A Tale of Two Cities'?", "Who wrote the play 'Hamlet'?", "In George Orwell's '1984', what is the oppressive regime called?");
 
 $hist_questions = array("Who was the first President of the United States?", "In what year did Christopher Columbus first reach the Americas?", "Who was the leader of the Soviet Union during World War II?", "What event marked the start of World War I?", "What ancient wonder was located in Alexandria, Egypt?");
 
@@ -16,7 +16,7 @@ $rand_questions = array("What is the capital city of Australia?", "What is the l
 
 $sci_answers = array("H2O", "Mars", "Mitochondria", "Blue whale", "299,792 km/s");
 
-$lit_answers = array("William Shakespeare", "Elizabeth Bennet", "It was the best of times, it was the worst of times", "William Shakespeare", "The Party");
+$lit_answers = array("William Shakespeare", "Alice Walker", "It was the best of times, it was the worst of times", "William Shakespeare", "The Party");
 
 $hist_answers = array("George Washington", "1492", "Joseph Stalin", "The assassination of Archduke Franz Ferdinand", "The Lighthouse of Alexandria");
 

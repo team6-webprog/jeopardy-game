@@ -18,20 +18,22 @@ if(isset($_COOKIE['currentQ'])) {
   </head>
 
 <body>
-  <div class="container">
-    <h1 id="gameTitle">Jeopardy</h1>
-    <h2>by Team Victory (Bliena, Ruqayyah, Neveah, Abe, Keidra)</h2>
-    <br>
-    <br>
-  </div>
+  
 
   <div class="login">
+    
+    <div class="container">
+        <h1 id="gameTitle">Jeopardy</h1>
+        <h2>by Team Victory<br>(Bliena, Ruqayyah, Neveah, Abe, Keidra)</h2>
+        <br>
+        <br>
 
-    <form method="get" action="game.php">
-        <label for="name">Enter a Name:</label><br>
-        <input type="text" name="name" id="name" size="16">
-        <input type="submit" value="Start Game">
-    </form>
+        <form method="get" action="game.php">
+            <label for="name">Enter a Name:</label><br>
+            <input type="text" name="name" id="name" size="16">
+            <input type="submit" value="Start Game">
+        </form>
+    </div>
 
     <table>
         <caption>Leaderboard</caption>

@@ -13,8 +13,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     justify-content: center;
     align-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    align-items: center;
 }
 
 a {
@@ -25,10 +26,27 @@ a {
     font-size: 3em;
 }
 
+.login {
+    display: flex;
+    flex-direction: row;
+    width: 95vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
 table {
     width: 100%;
     font-size: 2.5em;
     font-family: "jeopardyFont";
+}
+
+.login table {
+    width: 50%;
 }
 
 caption {
@@ -54,12 +72,21 @@ td {
     color: #D7A04B;
 }
 
+.player_info {
+    width: 90vw;
+}
+
 .player_info, .player_info div {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     letter-spacing: 1px;
     font-weight: lighter;
+}
+
+.answered {
+    text-decoration: line-through;
+    color: rgb(83, 60, 27);
 }
 
 label {
@@ -97,4 +124,90 @@ input[type="submit"]:hover, button:hover {
     background-color: #997135;
     border-color: #997135;
     cursor: pointer;
+}
+
+.timer-container {
+    width: 90vw;
+    overflow: hidden;
+    height: 20px;
+    border: 2px solid #ccc;
+    overflow: hidden;
+    position: relative;
+    bottom: -30vh;
+}
+
+.timer-bar {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.timer-bar div {
+    width: 10%;
+    height: 100%;
+    background-color: #D7A04B;
+}
+.timer_1{
+    animation: fadeOut_1 2.22s forwards;
+}
+@keyframes fadeOut_1 {
+    99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.timer_2{
+    animation: fadeOut_2 4.44s forwards;
+}
+@keyframes fadeOut_2 {
+    99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.timer_3{
+    animation: fadeOut_3 6.66s forwards;
+}
+@keyframes fadeOut_3 {
+    99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.timer_4{
+    animation: fadeOut_4 8.88s forwards;
+}
+@keyframes fadeOut_4 {
+    99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.timer_5{
+    animation: fadeOut_1 10.00s forwards;
+}
+@keyframes fadeOut_5 {
+    99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.timer_6{
+    animation: fadeOut_1 8.88s forwards;
+}
+@keyframes fadeOut_6 {
+    99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.timer_7{
+    animation: fadeOut_1 6.66s forwards;
+}
+@keyframes fadeOut_7 {
+    99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.timer_8{
+    animation: fadeOut_8 4.44s forwards;
+}
+@keyframes fadeOut_8 {
+    99% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.timer_9{
+    animation: fadeOut_9 2.22s forwards;
+}
+@keyframes fadeOut_9 {
+    99% { opacity: 1; }
+    100% { opacity: 0; }
 }
