@@ -34,13 +34,14 @@ if(isset($_GET['question'])) {
             // determine the category - $topics is defined in questions_answers.php
             $cat_name = $topics[$mapping[$category]];
 
+            // get the answer - $answer_pool defined in questions_answers.php
+            $a = $answer_pool[$mapping[$category]][$number-1];
+
             // if the user has submitted their answer
             if(isset($_POST['userResponse'])) {
-                // get the answer - $answer_pool defined in questions_answers.php
-                $a = $answer_pool[$mapping[$category]][$number-1];
-
+                
                 // if answer is identical, update user's points
-                if(strtolower($_POST['userResponse']) == strtolower($a)) {
+                if($_POST['userResponse'] == $a["r"]) {
                     $_SESSION["points"] += ((int)$number * 100);
                     echo "<div><h1>Your answer is Correct!</h1> 
                     <label>You earned $". ((int)$number * 100)." points!</label>
@@ -62,12 +63,6 @@ if(isset($_GET['question'])) {
             }
             
         ?>
-        <form method="POST" action="question.php">
-            <label for="userResponse"><?= $q ?></label>
-            <br>
-            <input type="text" name="userResponse" id="userResponse" size='20'>
-            <input type="submit" value="Enter">
-        </form>
 
         <div class="timer-container">
             <div class="timer-bar">
@@ -82,6 +77,31 @@ if(isset($_GET['question'])) {
                 <div class="timer_9"></div>
             </div>
         </div>
+
+
+        <form method="POST" action="question.php" class="question_form">
+            <label for="userResponse"><?= $q ?></label>
+            <br>
+            
+            <div class="radioOptions">
+            <?php 
+                // shuffle associative array
+                $keys = array_keys($a);
+                shuffle($keys);
+                $shuffled_options = array();
+                foreach($keys as $key) {
+                  $shuffled_options[$key] = $a[$key]; 
+                }
+
+                foreach($shuffled_options as $key => $answer_choice) {
+                    echo "<input type='radio' id='$key' name='userResponse' value='$answer_choice'>
+                    <label for='$key' class='radioLabel'>$answer_choice</label><br>";
+                }
+            ?>
+            </div>
+
+            <input type="submit" value="Enter">
+        </form>
 
     </body>
 

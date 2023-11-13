@@ -1,5 +1,7 @@
 <?php
 
+include 'questions_answers.php';
+
 // Cookie should be in string of format:
 // user1--1000||user2--900||user3--320
 
@@ -13,14 +15,8 @@ function decodePlayerCookie($str) {
 
     for ($i=0; $i < count($players_old) - 1; $i++) { 
         $pair = explode("--", $players_old[$i]);
-        // print_r($pair);
         $updated_players[$pair[0]] = $pair[1];
     }
-    // foreach($players_old as $user_points) {
-    //     $i = explode("--", $user_points);
-    //     print_r($i);
-    //     $updated_players[$i[0]] = $i[1]; //this is causing an undefined key error, can't figure it out?
-    // }
 
     // return associative array of form:
     // Array ( "user1" => 1000, "user2" => 900... )
@@ -38,6 +34,11 @@ function addToPlayerCookie($players) {
     return $cookie;
 }
 
-$mapping = array("cat1" => 0, "cat2" => 1, "cat3" => 2, "cat4" => 3, "cat5" => 4);
+$mapping = array();
+
+for ($i=0; $i < count($topics); $i++) { 
+    $category = "cat".($i+1);
+    $mapping[$category] = $i;
+}
 
 ?>
