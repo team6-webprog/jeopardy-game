@@ -54,7 +54,7 @@ if(isset($_COOKIE['currentQ'])) {
                     $num = 5;
                 }
 
-                for ($i=0; $i < $num-1; $i++) { 
+                for ($i=0; $i < $num; $i++) { 
                     $user = $player_users[$i];
                     $points = $players[$player_users[$i]];
                     echo "<tr> <td>".$user."</td><td>".$points."</td></tr>";
