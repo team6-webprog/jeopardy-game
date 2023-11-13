@@ -7,6 +7,9 @@ session_start();
 if(isset($_GET['question'])) {
     setcookie("currentQ", $_GET['question']);
 }
+
+// timer (visually represented with divs below)
+header( "refresh:10;url=question.php?status=timeout" );
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +43,7 @@ if(isset($_GET['question'])) {
             // if the user has submitted their answer
             if(isset($_POST['userResponse'])) {
                 
-                // if answer is identical, update user's points
+                // if answer is correct, update user's points
                 if($_POST['userResponse'] == $a["r"]) {
                     $_SESSION["points"] += ((int)$number * 100);
                     echo "<div><h1>Your answer is Correct!</h1> 
@@ -54,8 +57,16 @@ if(isset($_GET['question'])) {
                     <br> <button><a href='game.php'>Return to Board</a></button></div>";
                     exit;
                 }
-
-                
+            } 
+            // else if user didn't answer in time
+            else if (isset($_GET['status'])) {
+                if($_GET['status'] == "timeout") {
+                    $_SESSION["points"] -= ((int)$number * 100);
+                    echo "<div><h1>Sorry, you ran out of time.</h1> 
+                    <label>You lost $". ((int)$number * 100)." points.</label>
+                    <br> <button><a href='game.php'>Return to Board</a></button></div>";
+                    exit;
+                }
             }
             // if user needs to answer the question, determine question and run remaining code
             else {
