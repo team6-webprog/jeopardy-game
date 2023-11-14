@@ -9,7 +9,9 @@ if(isset($_GET['question'])) {
 }
 
 // timer (visually represented with divs below)
-header( "refresh:10;url=question.php?status=timeout" );
+if(!isset($_GET['status']) or !$_GET['status'] == "timeout") {
+    header( "refresh:10;url=question.php?status=timeout" );
+}
 ?>
 
 <!DOCTYPE html>
@@ -45,26 +47,17 @@ header( "refresh:10;url=question.php?status=timeout" );
                 
                 // if answer is correct, update user's points
                 if($_POST['userResponse'] == $a["r"]) {
-                    $_SESSION["points"] += ((int)$number * 100);
-                    echo "<div><h1>Your answer is Correct!</h1> 
-                    <label>You earned $". ((int)$number * 100)." points!</label>
-                    <br> <button><a href='game.php'>Return to Board</a></button></div>";
+                    echo responseToDisplay("correct", $number);
                     exit;
                 } else {
-                    $_SESSION["points"] -= ((int)$number * 100);
-                    echo "<div><h1>Sorry, your answer is Wrong.</h1> 
-                    <label>You lost $". ((int)$number * 100)." points.</label>
-                    <br> <button><a href='game.php'>Return to Board</a></button></div>";
+                    echo responseToDisplay("wrong", $number);
                     exit;
                 }
             } 
             // else if user didn't answer in time
             else if (isset($_GET['status'])) {
                 if($_GET['status'] == "timeout") {
-                    $_SESSION["points"] -= ((int)$number * 100);
-                    echo "<div><h1>Sorry, you ran out of time.</h1> 
-                    <label>You lost $". ((int)$number * 100)." points.</label>
-                    <br> <button><a href='game.php'>Return to Board</a></button></div>";
+                    echo responseToDisplay("timeout", $number);
                     exit;
                 }
             }
@@ -91,7 +84,7 @@ header( "refresh:10;url=question.php?status=timeout" );
 
 
         <form method="POST" action="question.php" class="question_form">
-            <label for="userResponse"><?= $q ?></label>
+            <label><?= $q ?></label>
             <br>
             
             <div class="radioOptions">
@@ -105,7 +98,7 @@ header( "refresh:10;url=question.php?status=timeout" );
                 }
 
                 foreach($shuffled_options as $key => $answer_choice) {
-                    echo "<input type='radio' id='$key' name='userResponse' value='$answer_choice'>
+                    echo "<input type='radio' id='$key' name='userResponse' value='$answer_choice' required>
                     <label for='$key' class='radioLabel'>$answer_choice</label><br>";
                 }
             ?>

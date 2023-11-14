@@ -20,6 +20,9 @@ body {
 
 a {
     color: #D7A04B;
+    display: flex;
+    justify-content: center;
+    margin-top: 1vw;
 }
 
 #gameTitle {
@@ -38,6 +41,10 @@ a {
     flex-direction: column;
     width: 50%;
     align-items: center;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 table {
@@ -64,6 +71,10 @@ th, td {
     margin: 0;
 }
 
+td a:hover {
+    text-decoration: underline;
+}
+
 th {
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -73,8 +84,13 @@ td {
     color: #D7A04B;
 }
 
+td a:hover {
+    color: #997135;
+}
+
 .player_info {
     width: 90vw;
+    margin-bottom: 1vw;
 }
 
 .player_info, .player_info div {
@@ -82,7 +98,7 @@ td {
     flex-direction: row;
     justify-content: space-between;
     letter-spacing: 1px;
-    font-weight: lighter;
+    align-items: center;
 }
 
 .answered {
@@ -100,7 +116,6 @@ td {
 label {
     color: white;
     font-size: 2.5em;
-    /* margin-bottom: 2vw; */
 }
 
 input {
@@ -110,16 +125,15 @@ input {
     border-radius: 5px;
 }
 
-button {
+.button {
     width: fit-content;
     padding: 1vw;
     font-size: 2em;
     border-radius: 5px;
-    margin-top: 1.5vw;
-}
-button a {
     color: white;
     text-decoration: none;
+    font-weight: 500;
+    display: flex;
 }
 
 input[type="radio"] {
@@ -157,16 +171,17 @@ input[type="radio"]:checked + .radioLabel {
     background-color: #997135;
 }
 
-input[type="submit"], button {
+input[type="submit"], .button {
     background-color: #D7A04B;
     border: 1px solid #D7A04B;
     color: white;
 }
 
-input[type="submit"]:hover, button:hover {
+input[type="submit"]:hover, a .button:hover {
     background-color: #997135;
     border-color: #997135;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .question_form input[type="submit"] {

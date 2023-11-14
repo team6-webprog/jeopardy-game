@@ -4,26 +4,7 @@ include 'common.php';
 
 session_start();
 
-// if there is already a saved leaderboard
-if(isset($_COOKIE['players'])) {
-    // decode the current cookie into an array
-    $oldPlayers = $_COOKIE['players'];
-    $player_list = decodePlayerCookie($oldPlayers);
-
-    // add current user to leaderboard and sort in desc. order
-    $player_list[$_SESSION['user']] = $_SESSION['points'];
-    arsort($player_list);
-
-    // reformat array into a string
-    $updated_cookie = addToPlayerCookie($player_list);
-    
-    // save the cookie
-    setcookie('players', $updated_cookie, time()+60*60*24*30);
-} else {
-    // if this is the first user to play, initialize the cookie
-    $cookie_val = addToPlayerCookie(array($_SESSION['user'] => $_SESSION['points']));
-    setcookie('players', $cookie_val, time()+60*60*24*30);
-}
+updateLeaderBoard($_SESSION['user'], $_SESSION['points'])
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +21,7 @@ if(isset($_COOKIE['players'])) {
     <h2>Your Final Score:</h2>
 
     <label><?= $_SESSION['user'] ?> ~ $<?= $_SESSION['points'] ?></label><br>
-    <button><a href="index.php">Play Again</a></button>
+    <a href="index.php"><div class="button">Play Again</div></a>
   </div>
 
 </body>

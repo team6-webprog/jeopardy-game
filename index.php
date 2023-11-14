@@ -2,13 +2,8 @@
 include 'common.php';
 
 // if user comes back to first page, reset session and question cookie
-if(isset($_SESSION['user'])) {
-    session_unset();
-}
+resetCookieSession();
 
-if(isset($_COOKIE['currentQ'])) {
-    setcookie("currentQ", $_COOKIE['currentQ'], time() - 3600);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

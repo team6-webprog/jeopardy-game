@@ -37,6 +37,9 @@ else if(isset($_SESSION['user'])) {
                 <h2>Points:&nbsp;</h2>
                 <h2>$<?= $points ?></h2>
             </div>
+            <div>
+                <a href="end.php"><div class="button">End Game</div></a>
+            </div>
         </div>
 
         
@@ -79,9 +82,6 @@ else if(isset($_SESSION['user'])) {
             ?>
 
         </table>
-        <div>
-            <button><a href="end.php">End Game</a></button>
-        </div>
     
     </body>
 </html>
