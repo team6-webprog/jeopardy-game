@@ -9,7 +9,7 @@ if(isset($_GET['question'])) {
 }
 
 // timer (visually represented with divs below)
-if(!isset($_POST['userResponse']) or !isset($_GET['status']) or !$_GET['status'] == "timeout") {
+if(!isset($_POST['userResponse']) and (!isset($_GET['status']) or !$_GET['status'] == "timeout")) {
     header( "refresh:10;url=question.php?status=timeout" );
 }
 ?>
